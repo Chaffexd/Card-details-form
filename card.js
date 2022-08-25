@@ -94,15 +94,16 @@ function validate(){
         yearInput.value !== "" &&
         cvcInput.value !== ""
     ){ 
-        cardForm.addEventListener("submit", () => {
-            cardDetailsForm.style.display = "none";
-            thankYouForm.style.display = "flex";
+        cardForm.addEventListener("submit", (event) => {
+            cardDetailsForm.classList.add("hide");
+            thankYouForm.classList.remove("hide");
+            event.preventDefault();
         })
-        // cardHolderName.value === "";
-        // cardNumberInput.value === "";
-        // monthInput.value === "";
-        // yearInput.value === "";
-        // cvcInput.value === "";
+        cardHolderName.value === "";
+        cardNumberInput.value === "";
+        monthInput.value === "";
+        yearInput.value === "";
+        cvcInput.value === "";
 
     }else{
         if(cardHolderName.value === ""){
