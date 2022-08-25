@@ -1,246 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-* {
-    padding: 0;
+body{
+    height:100vh;
     margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box;
+}
+.container-fluid{
+    margin: 0!important;
+    padding: 0!important;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+.firstColumn{
+    width:35%;
+    position:relative;
+    background-image: url('images/bg-main-desktop.png');
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap!important;
+    overflow: visible!important;
+    z-index: 99;
+}
+.secondColumn{
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:65%;
+}
+.frontCard, .backCard{
+    position:relative;
+    margin:20px 0;
+}
+.frontCard{
+    left:30%;
+}
+.backCard{
+    right:-52%;
+}
+.frontCardDetails, .backCardDetails{
+    position: relative;
+    max-width:447px; 
+    max-height:245px;
+}
+.img-fluid{
+    max-width: 100%!important;
+    height:auto!important;
+    object-fit: cover;
+}
+/**********First Column Front card and back card*************/
+.cardLogo, .cardNumber, .cardName, .cardExpiry, .cardCVV{
+    position:absolute;
     font-family: 'Space Grotesk', sans-serif;
+    color:#fff;
     font-weight: 500;
 }
-
-body {
-    background-image: url(/images/bg-main-desktop.png);
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cardLogo{
+    top:30px;
+    left:30px;
+}
+.cardNumber{
+    bottom:60px;
+    left:30px;
+    color:#fff;
+    letter-spacing: 4px;
+    font-size:27px;
+    text-transform: uppercase;
+}
+.cardName{
+    bottom:10px;
+    left:30px;
+    font-size:15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.cardExpiry{
+    bottom:10px;
+    right:30px;
+    font-size:15px;
+    letter-spacing: 1px;
+}
+.cardCVV{
+    top:45%;
+    right:55px;
+    font-size:15px;
+    letter-spacing: 1px;
 }
 
-main {
-    display: flex;
-    width: 100%;
+/************second column form******************/
+.cardDetailsForm{
+    width:43%;
+    margin-left: 150px;
 }
 
-img {
-    width: 400px;
-}
-
-#right {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-}
-
-#cardDetails {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 400px;
-}
-
-#thankYou {
-    display: none;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 400px;
-    height: 100%;
-}
-
-#thankYou img {
-    width: 40px;
-    height: 40px;
-    padding-bottom: 40px;
-}
-
-#thankYou h2, p {
-    padding-bottom: 20px;
-}
-
-input {
-    padding: 11px;
-    border-radius: 8px;
-    border: 1px solid hsl(279, 6%, 55%);
-}
-
-input:focus {
-    border: 2px solid hsl(278, 68%, 11%);
-    outline: none;
-}
-
-#cardDates {
-    display: flex;
-    width: 100%;
-    padding-bottom: 20px;
-}
-
-.labelElements {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-.inputElements {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
-.inputElements input {
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.date {
-    width: 50px;
-    margin-right: 10px;
-}
-
-label, input {
-    margin-bottom: 15px;
-    color:hsl(278, 68%, 11%);
-}
-
-button {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid;
-    cursor: pointer;
-    background-color: hsl(278, 68%, 11%);
-    color: white;
-    width: 100%;
-}
-
-#successButton {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid;
-    cursor: pointer;
-    background-color: hsl(278, 68%, 11%);
-    color: white;
-    width: 80%;
-}
-
-.left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 50%;
-}
-
-.imgOne, .imgTwo {
-    height: 220px;
-    width: 400px;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.imgOne {
-    background-image: url(/images/bg-card-front.png);
-    position: relative;
-    left: -120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding-bottom: 40px;
-}
-
-.top {
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-}
-
-.bottom {
-    color: white;
-    text-align: center;
-    padding: 0 20px;
-    margin-top: 30px;
-}
-
-span {
+label{
+    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight:600;
     letter-spacing: 2px;
-}
-
-.spanDigits {
+    color:hsl(278, 68%, 11%);
+    display:block!important;
+    margin-bottom:5px;
+}   
+.dateAndCvv{
     display: flex;
-    justify-content: space-between;
-    padding-bottom: 30px;
+    flex-direction: row;
+}
+.row{
+    flex:1;
+    margin-top:30px!important;
+}
+.col{
+    padding:0 5px!important;
+}
+.cardDetailsForm .row .col .form-control{
+    padding:7px;
+    border-radius: 7px;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 18px;
 }
-
-.nameJane {
-    font-size: 12px;
+.form-control::placeholder{
+    color: #d5d5d5!important;
+}
+.btn{
+    background-color: hsl(278, 68%, 11%)!important;
+    border:none!important;
+    width: 100%;
+    padding:14px!important;
+    border-radius: 7px!important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    margin-top:30px;
 }
 
-.fakeDate {
-    font-size: 12px;
-}
-
-.fake {
-    display: flex;
-    justify-content: space-between;
-}
-
-.greyCircle {
-    height: 40px;
-    width: 40px;
-    background-color: hsl(270, 3%, 87%);
-    border-radius: 50%;
-    margin-right: 15px;
-}
-
-.circle {
-    height: 20px;
-    width: 20px;
-    border: 1px solid hsl(270, 3%, 87%);
-    border-radius: 50%;
-}
-
-.imgTwo {
-    position: relative;
-    left: -40px;
-    background-image: url(/images/bg-card-back.png);
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.imgTwo p {
-    padding-right: 47px;
-    color: hsl(270, 3%, 87%);
-    position: relative;
-    top: -2px;
-}
-
-#monthyearError {
-    display: flex;
-}
-
-#monthyearError span {
-    display: block;
-}
-
-/* JS elements */
-#nameError {
-    display: block;
-}
-
-
-/* For errors */
-
-#nameError, #numberError, #monthError, #yearError, #cvcError {
+/********Error in Form**************/
+.cardDetailsForm p{
     font-family: 'Space Grotesk', sans-serif;
     font-size:15px;
     color:hsl(0, 100%, 66%);
+    margin-top:5px;
 }
-
-#numberError, #monthError {
-    position: relative;
-    top: -15px;
-}
-
-
 
 /**********Thank You****************/
 h3{
@@ -267,5 +177,137 @@ h3{
 }
 
 .hide{
-    display: none;
+    display:none;
+}
+
+@media only screen and (max-width:480px){
+    body{
+        margin: 0!important;
+        padding: 0!important;
+    }
+    .container-fluid{
+        width: 100vw!important;
+        height:auto!important;
+        display: block!important;
+    }
+    .firstColumn{
+        width:100%!important;
+        height:auto!important;
+        background-size: cover!important;
+        display: flex!important;
+        flex-direction: column-reverse!important;
+        justify-content: flex-start!important;
+        align-items: stretch!important;
+        flex-wrap: wrap!important;
+        padding-top:50px;
+    }
+    .secondColumn{
+        width: 100%!important;
+        padding: 30px !important;
+    }
+    .cardDetailsForm{
+        width: 100%!important;
+        margin-top: 100px!important;
+        margin-left: 0!important;
+    }
+    .frontCard{
+        width:80%!important;
+        left:5%!important;
+        margin-bottom:-70px!important;
+        z-index: 2;
+    }
+    .backCard{
+        margin-bottom:-80px!important;
+        width:80%!important;
+        right:-10%!important;
+        top: 0!important;
+    }
+    .frontCardDetails{
+        width:100%!important;
+    }
+    .backCardDetails{
+        width:100%!important;
+    }
+    .cardNumber{
+        font-size: 17px!important;
+        bottom: 45px!important;
+        left:20px!important;
+    }
+    .cardLogo{
+        top:15px!important;
+        left:15px!important;
+    }
+    .cardName{
+        bottom:15px!important;
+        left: 15px !important;
+        margin-bottom: 0!important;
+        font-size:13px!important;
+    }
+    .cardExpiry{
+        bottom: 15px !important;
+        right: 15px !important;
+        margin-bottom: 0!important;
+        font-size:13px!important
+    }
+    label{
+        font-size: 10px!important;
+        letter-spacing: 1px!important;
+    }
+    .cardDetailsForm .row .col .form-control{
+        padding:7px!important;
+        border-radius: 5px;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 15px!important;
+    }
+    .thankYou{
+        width: 100%!important;
+        margin-left:0!important;
+        margin-top:100px;
+    }
+}
+@media screen and (max-width:960px) and (min-width:481px){
+    .container-fluid{
+        width: 100%!important;
+        height:auto!important;
+        display: block!important;
+    }
+    
+    .firstColumn{
+        width:100%!important;
+        height:auto!important;
+        background-size: cover!important;
+        display: flex!important;
+        flex-direction: column-reverse!important;
+        justify-content: flex-start!important;
+        align-items: stretch!important;
+        flex-wrap: wrap!important;
+        padding-top:50px;
+    }
+    .secondColumn{
+        width: 60%!important;
+        padding: 30px !important;
+        margin:0 auto;
+    }
+    .cardDetailsForm{
+        width: 100%!important;
+        margin-top: 100px!important;
+        margin-left: 0!important;
+    }
+    .frontCard{
+        width:85%!important;
+        left:15%!important;
+        margin-bottom:-70px!important;
+        z-index: 2;
+    }
+    .backCard{
+        margin-bottom:-120px!important;
+        width:85%!important;
+        right:-30%!important;
+        top: 0!important;
+    }
+    .thankYou{
+        width: 100%!important;
+        margin-left:0!important;
+        margin-top:100px;
+    }
 }

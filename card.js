@@ -1,12 +1,12 @@
-const cardNumber = document.getElementById("cardNumber");
+const cardNumber = document.querySelector("#cardNumber");
 const cardName = document.getElementById("cardName");
-const cardNumberInput = document.getElementById("cardInput");
-const cardHolderName = document.getElementById("name");
+const cardExpiry = document.getElementById("cardExpiry");
+const cardCvv = document.getElementById("cardCVV");
+const cardHolderName = document.querySelector("#cardHolderName");
+const cardNumberInput = document.querySelector("#cardNumberInput");
+const month = document.querySelector("#expiryMonth");
+const year = document.querySelector("#expiryYear");
 const monthInput = document.getElementById("month");
-const cardExpiry = document.getElementById("fakeDate");
-const cardCvv = document.getElementById("cardCvv");
-const month = document.getElementById("expiryMonth");
-const year = document.getElementById("expiryYear");
 const yearInput = document.getElementById("year");
 const cvcInput = document.getElementById("cvcInput");
 const nameError = document.getElementById("nameError");
@@ -14,10 +14,9 @@ const numberError = document.querySelector("#numberError");
 const monthError = document.getElementById("monthError");
 const yearError = document.getElementById("yearError");
 const cvcError = document.getElementById("cvcError");
-const cardDetailsForm = document.getElementById("cardDetails");
-const submitButton = document.getElementById("confirmButton");
-const thankYouForm = document.getElementById("thankYou");
-const cardForm = document.getElementById("cardForm");
+const cardDetailsForm = document.querySelector(".cardDetailsForm");
+const thankYouForm = document.querySelector(".thankYou");
+const cardForm = document.querySelector("#cardForm");
 
 cardNumberInput.addEventListener("input", () => {
     cardNumber.innerHTML = (cardNumberInput.value).replace(/\W/gi, '').replace(/(.{4})/g, '$1 '); 
@@ -30,12 +29,10 @@ cardNumberInput.addEventListener("input", () => {
             var isValid = regex.test(keyCode);
             console.log(isValid);
             if (!isValid) {
-                numberError.innerHTML = "Wrong format, numbers only.";
-                cardNumberInput.style.border = "1px solid hsl(0, 100%, 66%)";
+                numberError.innerHTML = "Wrong Format, numbers allowed.";
                 return false;
             }else{
                 numberError.innerHTML = "";
-                cardNumberInput.style.border = "1px solid hsl(278, 68%, 11%)";
             }
         }
     if(cardNumberInput.value === ""){
@@ -49,33 +46,21 @@ cardHolderName.addEventListener("input", () => {
         cardName.innerHTML = "Jane Appleseed";
     }
 })
-
 monthInput.addEventListener("input", () => {
     month.innerHTML = monthInput.value;
     if(monthInput.value === ""){
         month.innerHTML = "00";
-        monthError.style.fontWeight = "bold";
-        monthInput.style.border = "1px solid hsl(0, 100%, 66%)";
     }
     if(monthInput.value > 12){
-        monthError.innerHTML = "Number cannot be more than 12";
-        monthError.style.fontSize = "7px";
-        monthError.style.fontWeight = "bold";
-        monthInput.style.border = "1px solid hsl(0, 100%, 66%)"
+        monthError.innerHTML = "Number can't be greater than 12";
     }else{
         monthError.innerHTML = "";
-        monthInput.style.border = "1px solid hsl(278, 68%, 11%)";
     }
 });
-
 yearInput.addEventListener("input", () => {
     year.innerHTML = yearInput.value;
     if(yearInput.value === ""){
         year.innerHTML = "00";
-        yearInput.style.border = "1px solid hsl(0, 100%, 66%)";
-    }else{
-        monthError.innerHTML = "";
-        monthInput.style.border = "1px solid hsl(278, 68%, 11%)";
     }
 })
 
@@ -84,9 +69,8 @@ cvcInput.addEventListener("input", () => {
     if(cvcInput.value === ""){
         cardCvv.innerHTML = "000";
     }
-});
-
-function validate(){
+})
+function validate(event){
     if(
         cardHolderName.value !== "" && 
         cardNumberInput.value !== "" &&
@@ -108,42 +92,38 @@ function validate(){
     }else{
         if(cardHolderName.value === ""){
             nameError.innerHTML = "Can't be blank";
-            cardHolderName.style.border = "1px solid hsl(0, 100%, 66%)";
         }else{
             nameError.innerHTML = "";
         }
 
         if(cardNumberInput.value === ""){
             numberError.innerHTML = "Can't be blank";
-            cardNumberInput.style.border = "1px solid hsl(0, 100%, 66%)";
         }else{
             numberError.innerHTML = "";
         }
 
         if(monthInput.value === ""){
             monthError.innerHTML = "Can't be blank";
-            monthInput.style.border = "1px solid hsl(0, 100%, 66%)";
         }else{
             monthError.innerHTML = "";
         }
 
         if(yearInput.value === ""){
             yearError.innerHTML = "Can't be blank";
-            yearInput.style.border = "1px solid hsl(0, 100%, 66%)";
         }else{
             yearError.innerHTML = "";
         }
 
         if(cvcInput.value === ""){
             cvcError.innerHTML = "Can't be blank";
-            cvcInput.style.border = "1px solid hsl(0, 100%, 66%)";
         }else{
             cvcError.innerHTML = "";
         }
         return false;
     }
 }
+function backToHome(){
+    cardDetailsForm.classList.remove("hide");
+    thankYouForm.classList.add("hide");
 
-submitButton.addEventListener("submit", (e) => {
-   
-})
+}
